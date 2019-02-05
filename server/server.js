@@ -11,7 +11,7 @@ app.use(bodyParser.json())
 // parse routes
 app.use(require('./routes/usuario'))
 
-mongoose.connect('mongodb://localhost:27017/cafe', (err, res) =>{
+mongoose.connect(process.env.urlDb, (err, res) =>{
   if (err) {
     throw err
   }

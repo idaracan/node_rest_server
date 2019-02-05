@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const uniqueVal= require('mongoose-unique-validator')
+
 let Schema = mongoose.Schema
 let rolesValidos = {
     values: ['ADMIN_ROLE', 'USER_ROLE'],
@@ -25,7 +26,7 @@ let usuarioSchema = new Schema({
     },
     rol:{
         type: String,
-        default: 'ADMIN_ROLE',
+        default: 'USER_ROLE',
         enum: rolesValidos
     },
     estado:{
@@ -37,5 +38,11 @@ let usuarioSchema = new Schema({
         default: false
     }
 })
+usuarioSchema.methods.toJSON = function () {
+    let usuario = this
+    let usuarioObject = usuario.toObject()
+    delete usuarioObject.pass
+    return usuarioObject
+}
 usuarioSchema.plugin(uniqueVal,{message: '{PATH} debe ser único'})
 module.exports = mongoose.model('Usuario', usuarioSchema)
