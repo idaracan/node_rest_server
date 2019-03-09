@@ -6,3 +6,5 @@ process.env.urlDb = process.env.NODE_ENV? process.env.MONGO_URI : 'mongodb://loc
 process.env.expiresIn = (((60*60)*24)*30)
 //  seed de desarollo
 process.env.SEED = process.env.SEED || 'seed-des'
+//  google client id
+process.env.CLIENT_ID = process.env.CLIENT_ID || '408375448137-e6286mm1p20ha7gs2p1fennjqp0ucgno.apps.googleusercontent.com'
