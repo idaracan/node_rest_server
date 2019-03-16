@@ -65,28 +65,28 @@ app.put('/usuario/:id', [verificarToken, verificarAdmin], function (req, res) {
 })
 
 /*
-app.delete('/usuario/:id', function (req, res) {
-  Usuario.findByIdAndRemove(req.params.id, {}, (err, usuarioBorrado) =>{
-    if (err) {
-      res.status(400).json({
-        ok: false,
-        err
+  app.delete('/usuario/:id', function (req, res) {
+    Usuario.findByIdAndRemove(req.params.id, {}, (err, usuarioBorrado) =>{
+      if (err) {
+        res.status(400).json({
+          ok: false,
+          err
+        })
+      }
+      if (!usuarioBorrado) {
+        res.status(400).json({
+          ok: false,
+          err: {
+            message: 'El usuario no existe'
+          }
+        })
+      }
+      res.json({
+        ok:true,
+        usuario: usuarioBorrado
       })
-    }
-    if (!usuarioBorrado) {
-      res.status(400).json({
-        ok: false,
-        err: {
-          message: 'El usuario no existe'
-        }
-      })
-    }
-    res.json({
-      ok:true,
-      usuario: usuarioBorrado
     })
   })
-})
 */
 
 app.delete('/usuario/:id', [verificarToken, verificarAdmin], function (req, res) {

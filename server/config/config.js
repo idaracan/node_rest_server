@@ -3,7 +3,7 @@ process.env.PORT = process.env.PORT || 3000
 //  definición de base de datos
 process.env.urlDb = process.env.NODE_ENV? process.env.MONGO_URI : 'mongodb://localhost:27017/cafe'
 //  caducidad del token
-process.env.expiresIn = (((60*60)*24)*30)
+process.env.expiresIn = '48h'
 //  seed de desarollo
 process.env.SEED = process.env.SEED || 'seed-des'
 //  google client id
